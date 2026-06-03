@@ -134,8 +134,9 @@ def main():
     if st.session_state.user_authenticated:
         with st.sidebar:
             with st.expander("Settings",expanded=True):
-                asset_tickers = sorted(['DOW','NVDA','TSL','GOOGL','AMZN','AI','NIO','LCID','F','LYFY','AAPL', 'MSFT', 'BTC-USD', 'ETH-USD'])
-                asset_dropdown = st.multiselect('Pick Assets:', asset_tickers)
+                #assetstocks = [s.strip().upper() for s in stocks_input.split(',')]_tickers = sorted(['DOW','NVDA','TSL','GOOGL','AMZN','AI','NIO','LCID','F','LYFY','AAPL', 'MSFT', 'BTC-USD', 'ETH-USD'])
+               stocks_input = st.text_input('Enter stock tickers (separated by commas)', value='IWM, AAPL, NVDA')
+stocks = [s.strip().upper() for s in stocks_input.split(',')] asset_dropdown = st.multiselect('Pick Assets:', asset_tickers)
 
                 metric_tickers = ['Adj. Close', 'Relative Returns']
                 metric_dropdown = st.selectbox("Metric", metric_tickers)
